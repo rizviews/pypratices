@@ -24,7 +24,7 @@ class pyrabbit(object):
             config = data[environment]
             environments = ['qa','demo','dev']
             if environment in environments:
-                sshTunnel = SSHTunnel(ssh_host=config['remote_address'],username=config['remote_user'],key_file='C:\Projects\ezydev-key.pem',local='56772',remote=config['remote_host'])
+                sshTunnel = SSHTunnel(ssh_host=config['remote_address'],username=config['remote_user'],key_file='ezydev-key.pem',local='56772',remote=config['remote_host'])
                 sshTunnel.forward()
             publisherObj = publisher(host=config['rabbitmq_host'],username=config['username'],password=config['password'])
 

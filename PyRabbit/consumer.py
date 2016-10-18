@@ -8,16 +8,16 @@ class consumer(object):
         credentials = pika.PlainCredentials('guest', 'guest')
 
         connection = pika.BlockingConnection(pika.ConnectionParameters(
-                host='10.32.8.109',credentials=credentials))
+                host='rabbitmq_host',credentials=credentials))
 
         channel = connection.channel()        
         result = channel.exchange_declare(exchange=self.exchange,type='topic',durable=True)
         
-        queue_name = 'com.ezypay.event.core.event.InvoiceGeneratedEvent'
+        queue_name = 'your queue name'
 
         channel.queue_bind(exchange=self.exchange,
                            queue=queue_name,
-                           routing_key='topic/com.ezypay.event.core.event.InvoiceGeneratedEvent')
+                           routing_key='topic/topic_name')
 
         print(' [*] Waiting for logs. To exit press CTRL+C')
 

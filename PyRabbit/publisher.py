@@ -9,7 +9,7 @@ class publisher (object):
         self.channel = None
         self.queue_name = None
         self.exchange = "event.topic"
-        self.routing_key = "com.ezypay.event.core.event.#"
+        self.routing_key = "routing_key"
         self.host = host
    
     def connect(self):
